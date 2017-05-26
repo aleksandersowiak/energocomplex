@@ -28,7 +28,7 @@ textarea{
     resize: none;
 }
 
-label {
+#container label {
     color: #005AAB;
     font-family:"OpenSans-Regular";
 }
@@ -136,8 +136,6 @@ a { text-decoration: none; }
 #viewTree span.label-default {
     margin-left:40px;
     color: #005AAB;
-
-
 }
 #viewTree label:hover {
     cursor: pointer;
@@ -175,8 +173,7 @@ a { text-decoration: none; }
     margin-left:50px!important;
     padding:0 1.5em; /* indentation + .5em */
     line-height:2.4em; /* default list item's `line-height` */
-    font-weight:bold;
-
+    font-family: "OpenSans-Regular";
 }
 
 #viewTree li:before {
@@ -269,7 +266,7 @@ a { text-decoration: none; }
     display: inline-table;
 }
 
-#continer {
+#container {
     margin-bottom: 50px;
     z-index: 99;
 }

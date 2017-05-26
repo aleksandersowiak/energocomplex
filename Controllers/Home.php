@@ -149,7 +149,7 @@ class Home extends BaseController {
 
     protected function saveAction() {
         if (!$this->reCaptcha($this->getParam('g-recaptcha-response'))) {
-//            $this->feedback(__('reCaptcha'),"danger");
+            $this->feedback(__('reCaptcha'),"danger");
         }
         $globalEmail = $this->getConfig();
 
