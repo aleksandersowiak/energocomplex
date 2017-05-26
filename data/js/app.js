@@ -146,7 +146,6 @@ App = {
             $('.alert').remove();
             clearInterval(refreshIntervalId);
         }, 5000);
-        App.init();
     },
     clearForm : function () {
         $('div[class="can-toggle__switch"]').each(function () {
@@ -162,6 +161,5 @@ App = {
             other_activity.hide();
         }
         $('form').trigger('reset');
-        App.init();
     }
 }

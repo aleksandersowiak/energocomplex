@@ -19,6 +19,7 @@ abstract class BaseModel extends ViewModel
             $schema['pw']
         )
         or die(mysqli_connect_error());
+        $this->_db->set_charset("utf8");
         $this->_db->query('USE `' . $schema['db'] . '`');
 
     }
