@@ -35,15 +35,28 @@ App = {
                 $('form').find("input.required").each(function () {
                     if ($(this).val() == '') {
                         $(this).addClass('error-input');
+
                         event.preventDefault();
                         return;
                     }
                 });
+                if($('form').find("input.required").first().hasClass('error-input')) {
+                    console.log($('form').find('input.required').first());
+                    $('html, body').animate({
+
+                        scrollTop: $('form').find('input.required').first().offset().top
+                    }, 1000);
+                }
                 var booking_email = $('input[name="email"]').val();
                 if(!/(.+)@(.+){2,}\.(.+){2,}/.test(booking_email) ){
-                    $('input[name="email"]').addClass('error-input');
-                    event.preventDefault();
-                    return;
+                    if (!$('input[name="email"]').hasClass('error-input')) {
+                        $('input[name="email"]').addClass('error-input');
+                        $('html, body').animate({
+                            scrollTop: $('input[name="email"]').offset().top
+                        }, 1000);
+                        event.preventDefault();
+                        return;
+                    }
                 }
 
                 var $this = $(this);
