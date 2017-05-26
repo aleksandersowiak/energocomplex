@@ -1,0 +1,60 @@
+</div>
+<div id="footer" class="footer">
+    <label><?php echo __('global_header_language') ?>:</label>
+    <?php
+    $opts = array();
+    $uri = '/' . $_GET['controller'] . '/' . $_GET['action'];
+    foreach (glob("Languages/*.php") as $filename) {
+        $lang = str_replace('.php', '', basename($filename));
+        $languages[$lang] = __($lang);
+        $base_lang = ($_GET['language'] == '') ? DEFAULT_LANG : $_GET['language'];
+    }
+    ?>
+    <div id="app-lang" class="f16" style="display: inline-block; position:relative">
+        <span style="float:left;" class="flag <?= $base_lang ?>"><?= $languages[$base_lang] ?></span>
+        <span
+            style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeklEQVQ4T+WSsQmAMBAAL42VC1laiQvokC6ghVi6kAhiIy8fSPExSMoEQprcES7vyFwuk6cAQaON9lirrwYCLwp2gCmJCTy8qaAFTIkl8PAKDPD+1ASYEkswAycwAre+oFKJnH3YwxLUwBXA/r7Aso+U4NdwFjCJyR4PXWwREVlwoykAAAAASUVORK5CYII=); width: 16px; height: 16px; float:right"></span>
+
+        <div class="langs" style="padding: 7px; margin-left: -1px; display: none">
+            <ul>
+                <?php
+                foreach ($languages as $langK => $langN) {
+                    echo '<li><span class="flag ' . $langK . '" data-url="/' . $langK . $uri .'">' . $langN . '</span></li>';
+                }
+                ?></ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $(document).click(function (e) {
+            if ($(e.target).closest("#app-lang").length > 0) {
+                return false;
+            } else {
+                $('.langs').css('display', 'none');
+                $('#app-lang').css('border', 'none');
+                $('#app-lang').css('padding', '1px');
+            }
+        });
+        $('#app-lang').click(function () {
+            if ($('.langs').is(":visible")) {
+                $('.langs').css('display', 'none');
+                $('#app-lang').css('border', 'none');
+                $('#app-lang').css('padding', '1px');
+            } else {
+                $('#app-lang').css('border', '1px solid #ccc');
+                $('#app-lang').css('padding', '0');
+                $('.langs').css('display', 'block');
+                $('.langs').css('margin-top',-($('.langs').outerHeight()+1))
+            }
+        });
+        $('.langs span').click(function () {
+            window.location = $(this).attr('data-url');
+            return false;
+        });
+        if ($('#app-lang').outerWidth() < $('.langs').outerWidth()) {
+            $('#app-lang').width($('.langs').outerWidth() - 2);
+        }
+    });
+</script>
+</body>

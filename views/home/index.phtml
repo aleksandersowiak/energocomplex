@@ -1,0 +1,76 @@
+<div class="margin">
+
+    <div>
+        <img src="/data/images/logoEC.jpg" width="20%" class="minWidth" align="middle"/>
+        <img src="/data/images/nawias.jpg" width="20%" class="minWidth" align="middle"/>
+
+        <p class="heading"> <?= __('questionnaire') ?></p>
+
+        <p><?= __('client') ?></p>
+    </div>
+
+    <form action="<?= $this->form ?>" method="post" name="save" xmlns="http://www.w3.org/1999/html">
+        <table border="0">
+            <tr>
+                <td><label for="company"><?= __('company') ?> :</label></td>
+                <td><input type="text" class="required" name="company" id="company"
+                           placeholder="<?= __('company_name') ?>"/></td>
+            </tr>
+            <tr>
+                <td><label for="first_name"><?= __('first_name') ?> :</label></td>
+                <td><input type="text" name="first_name" id="first_name" placeholder="<?= __('first_name') ?>"/></td>
+            </tr>
+            <tr>
+                <td><label for="last_name"><?= __('last_name') ?> :</label></td>
+                <td><input type="text" name="last_name" id="last_name" placeholder="<?= __('last_name') ?>"/></td>
+            </tr>
+            <tr>
+                <td><label for="email"><?= __('email') ?> :</label></td>
+                <td><input type="text" class="required" id="email" name="email" placeholder="<?= __('email') ?>"/></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="activity"><?= __('type_of_activity') ?> :</label>
+                </td>
+                <td>
+                    <select id="activity" name="activity">
+                        <option value="<?= __('energy') ?>"><?= __('energy') ?></option>
+                        <option value="<?= __('industry') ?>"><?= __('industry') ?></option>
+                        <option class="other" value="<?= __('other') ?>"><?= __('other') ?>
+                        </option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="text"
+                           style="display: none;"
+                           id="other_activity"
+                           name="other_activity"
+                           placeholder="<?= __('other_activity') ?>"/>
+                </td>
+            </tr>
+        </table>
+        <p><?= __('devices') ?></p>
+
+        <div id="viewTree">
+        </div>
+        <hr/>
+        <p style="margin-top: 50px">
+            <script type="text/javascript">
+                var RecaptchaOptions = {
+                    theme: 'clean',
+                    custom_theme_widget: 'recaptcha_widget',
+                    lang: '<?=$_GET['language']?>'
+                };
+            </script>
+            <?= recaptcha_get_html($this->_publicKey); ?>
+        </p>
+        <input type="submit" value="<?= __('submit') ?>" name="submit"/>
+
+    </form>
+</div>
+<script>
+    var JSON_tree = <?=$this->listQuestions?>;
+    $('#viewTree').append(App.buildList(JSON_tree, false, '<?=__("yes")?>', '<?=__("no")?>'));
+</script>
