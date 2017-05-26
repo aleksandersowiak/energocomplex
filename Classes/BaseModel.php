@@ -13,8 +13,9 @@ abstract class BaseModel extends ViewModel
         $this->database = $this->getDb();
         $this->_configApp = $this->getConfig();
         $schema = $this->database[$this->_name];
+        $port = ($schema['port'] != '') ? ':' . $schema['port'] : '';
         $this->_db = mysqli_connect(
-            $schema['host'] . ':' . $schema['port'],
+            $schema['host'] . $port,
             $schema['un'],
             $schema['pw']
         )

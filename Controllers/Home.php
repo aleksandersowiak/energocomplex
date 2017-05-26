@@ -173,6 +173,9 @@ class Home extends BaseController {
                 $w[$k] = $rt;
             }
         }
+        if(empty($w)) {
+            $this->feedback(__('selected_input_empty'),"danger");
+        }
         $save = array();
         $dataVal = '<ul>';
         foreach ($w as $key => $value) {
@@ -197,7 +200,7 @@ class Home extends BaseController {
         $array = array_merge($form,$save);
         unset($array['recaptcha_response_field']);
 
-        $this->_model->insert('table',$array);
+        $this->_model->insert('ankieta',$array);
 
         $message = $this->message_head;
         $message .= sprintf($this->message_body, $form['company'], $form['first_name'], $form['last_name'], $form['email'], $form['activity'],$dataVal);
@@ -273,7 +276,7 @@ class Home extends BaseController {
             if ($value !== $string) {
                 continue;
             }
-            $path = [$string];
+            $path = array($string);
             for ($count = $it->getDepth(); $count && $count--;) {
 
                 array_unshift($path, $it->getSubIterator($count)->key());

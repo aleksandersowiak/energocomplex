@@ -1,3 +1,10 @@
 Options +FollowSymLinks
 RewriteEngine on
 RewriteRule ^([a-zA-Z]*)?/?([a-zA-Z]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9]*)?/?$ index.php?language=$1&controller=$2&action=$3&id=$4 [NC,L]
+
+ <Files "secrets.ini">
+			Require all denied
+		</Files>
+<Files "config.php">
+			Require all denied
+		</Files>

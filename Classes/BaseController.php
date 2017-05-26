@@ -40,13 +40,13 @@ public $_publicKey;
 	}
 	
 	protected function ReturnView($viewmodel, $fullview) {
-		$viewloc = 'views/' . get_class($this) . '/' . str_replace('Action','',$this->action) . '.phtml';
-		if ($fullview) {
-			require('views/maintemplate.phtml');
+        $viewloc = APPLICATION_PATH.'/views/' . get_class($this) . '/' . str_replace('Action','',$this->action) . '.phtml';
+        if ($fullview) {
+			require(APPLICATION_PATH.'/views/maintemplate.phtml');
 		} else {
-            require('views/template/header.phtml'); // is set default header
-			require($viewloc);  // data from controller action
-            require('views/template/footer.phtml'); // is set default footer
+            require(APPLICATION_PATH.'/views/template/header.phtml'); // is set default header
+            require($viewloc); // data from controller action
+            require(APPLICATION_PATH.'/views/template/footer.phtml'); // is set default footer
 		}
 	}
     public function setParam($key, $value)

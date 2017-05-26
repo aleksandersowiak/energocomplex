@@ -5,12 +5,17 @@ defined('APPLICATION_ENV')
 || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
 define('DEFAULT_LANG', 'pl');
 spl_autoload_register(function ($class_name) {
-    include_once '/Classes/' . $class_name . '.php';
+    if(file_exists(APPLICATION_PATH.'/Classes/' . $class_name . '.php')) {
+        include_once APPLICATION_PATH.'/Classes/' . $class_name . '.php';
+    }
 });
-foreach (glob("models/*.php") as $filename) {
+foreach (glob(APPLICATION_PATH."/Models/*.php") as $filename) {
     require_once($filename);
 }
-foreach (glob("controllers/*.php") as $filename) {
+foreach (glob(APPLICATION_PATH."/Controllers/*.php") as $filename) {
+    require_once($filename);
+}
+foreach (glob(APPLICATION_PATH."/Helper/*.php") as $filename) {
     require_once($filename);
 }
 
