@@ -149,7 +149,7 @@ class Home extends BaseController {
 
     protected function saveAction() {
         if (!$this->reCaptcha($this->getParam('g-recaptcha-response'))) {
-            $this->feedback(__('reCaptcha'),"danger");
+//            $this->feedback(__('reCaptcha'),"danger");
         }
         $globalEmail = $this->getConfig();
 
@@ -158,7 +158,6 @@ class Home extends BaseController {
         $checkbox = $this->getParam('objectCheck');
         $checkboxAll = $this->getParam('objectCheckAll');
         $inputs = $this->getParam('object');
-
         $w = array();
 
         if($checkboxAll == '') {
@@ -167,6 +166,8 @@ class Home extends BaseController {
         if($checkbox == '') {
             $this->feedback(__('selected_input_empty'),"danger");
         }
+        $check = array_filter($checkbox , function($x) { return !empty($x); });
+
         foreach ($checkbox as $k => $v) {
             $rt = $this->selectPathArray($k,$checkboxAll);
             if($rt != false) {
@@ -184,13 +185,19 @@ class Home extends BaseController {
             $dataVal .= str_replace($key.' &#8594;', '', $value);
 
             foreach ($keyValue as $v) {
-                $save[$v] = $inputs[$v];
+                if($inputs[$v] != '') {
+                    $save[$v] = $inputs[$v];
+                }
                 $dataVal .= '<span style="color: black; font-weight: bold">'.$inputs[$v].'<span>';
                 if ($v != end($keyValue)) $dataVal .= ' ';
             }
             $dataVal .= '</li>';
         }
         $dataVal .= '</ul>';
+
+        if(count($save) != count($check)) {
+            $this->feedback(__('selected_input_empty'),"danger");
+        }
 
         if (isset($form['other_activity']) && ($form['activity'] == __('other'))) {
             $form['activity']=$form['other_activity'];
@@ -200,7 +207,7 @@ class Home extends BaseController {
         $array = array_merge($form,$save);
         unset($array['recaptcha_response_field']);
 
-        $this->_model->insert('ankieta',$array);
+//        $this->_model->insert('ankieta',$array);
 
         $message = $this->message_head;
         $message .= sprintf($this->message_body, $form['company'], $form['first_name'], $form['last_name'], $form['email'], $form['activity'],$dataVal);
@@ -213,12 +220,14 @@ class Home extends BaseController {
         $mail->Subject  = 'Ankieta';
         $mail->Body     =  $message;
         $mail->IsHTML(true);
-        if(!$mail->send()) {
-            $this->feedback(__('not_send_mail'),"danger");
-        } else {
-            $extra = ' App.clearForm(); ';
-            $this->feedback(__('send_mail'),"success", $extra);
-        }
+        echo $message;
+        exit;
+//        if(!$mail->send()) {
+//            $this->feedback(__('not_send_mail'),"danger");
+//        } else {
+//            $extra = ' App.clearForm(); ';
+//            $this->feedback(__('send_mail'),"success", $extra);
+//        }
     }
 
     private function reCaptcha($response) {
