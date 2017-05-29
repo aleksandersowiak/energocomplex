@@ -518,3 +518,14 @@ textarea {
     display:block;
 }
 
+.button {
+    font-family: "OpenSans-Regular";
+    font-size: 18px;
+    color: #ffffff;
+    width: 140px;
+    height: 50px;
+    background-color: #007dc9;
+    border-color: #007dc9;
+    box-shadow: none;
+    border: none;
+}

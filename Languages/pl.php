@@ -70,7 +70,7 @@ $lang = array (
     "question" => "Zadaj nam pytanie",
     "problems" => "Ewentualne problemy",
 
-    "reCaptcha" => "reCaptcha jest pusty, bądź został niepoprawnie wprowadzony",
+    "reCaptcha" => "Captcha jest pusty, bądź został niepoprawnie wprowadzony",
     "not_send_mail" => "Wysyłanie wiadomości zakończyło się niepowodzeniem",
     "send_mail" => "Wiadomość została wysłana poprawnie",
 
