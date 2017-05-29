@@ -20,15 +20,20 @@ App = {
                 $($($(this)).parent('li').child('div[class="can-toggle__switch"]')).trigger('click');
             });
 
-            $('div[class="can-toggle__switch"]').on('click', function () {
-                var $this = $($(this).parent('label').parent('div.can-toggle').child('input[type="checkbox"]'));
-                $this = $($this);
-                var input = null;
-                input = $this.parents('li').children('textarea, input:not(.begin)');
-                input.each(function (i, e) {
-                    $(e).toggle();
-                })
+            $('input[type="checkbox"]').on('keypress', function () {
+                var x = event.keyCode;
+                if (x == 32) {
+                    $($(this).parents('li').child('div[class="box"]')).slideToggle();
+                    $($($(this)).parent('li').child('div[class="can-toggle__switch"]')).trigger('click');
+                    var $this = $(this).parent('div').find('div[class="can-toggle__switch"]');
+                    if ($($this)) {
 
+                        App.showHide($($this));
+                    }
+                }
+            });
+            $('div[class="can-toggle__switch"]').on('click', function (event) {
+                App.showHide($(this));
             });
 
             $('input[type="submit"]').click(function (event) {
@@ -40,7 +45,7 @@ App = {
                         return;
                     }
                 });
-                if($('form').find("input.required").first().hasClass('error-input')) {
+                if ($('form').find("input.required").first().hasClass('error-input')) {
                     console.log($('form').find('input.required').first());
                     $('html, body').animate({
 
@@ -48,7 +53,7 @@ App = {
                     }, 1000);
                 }
                 var booking_email = $('input[name="email"]').val();
-                if(!/(.+)@(.+){2,}\.(.+){2,}/.test(booking_email) ){
+                if (!/(.+)@(.+){2,}\.(.+){2,}/.test(booking_email)) {
                     if (!$('input[name="email"]').hasClass('error-input')) {
                         $('input[name="email"]').addClass('error-input');
                         $('html, body').animate({
@@ -66,9 +71,11 @@ App = {
                     var serializeObject = $('div#viewTree').find('input[type="text"], input[type="hidden"], textarea').serialize();
 
                     var serializeCheckbox = $('div#viewTree').find('input[type="text"], textarea').filter(function () {
-                        return this.value.length !== 0;
+                        return $(this).is(':visible');
                     }).parent("li").find('input[type="checkbox"]').serialize();
-                    var serializeCheckboxAll = $('div#viewTree').find('input[type="text"]').parents("li").find('input[type="checkbox"]').serialize();
+                    var serializeCheckboxAll = $('div#viewTree').find("li").find('input[type="checkbox"]').filter(function () {
+                        return ($(this).is(':visible'))
+                    }).serialize();
                     var data = {form: App.URLToArray(serializeForm)};
                     var data_ext = {object: App.URLToArray(serializeObject)};
                     $.extend(data, data_ext);
@@ -88,6 +95,17 @@ App = {
                 });
             });
         });
+    },
+
+    showHide: function ($thisEl) {
+        var $this = $($thisEl.parent('label').parent('div.can-toggle').child('input[type="checkbox"]'));
+        console.log($this)
+        $this = $($this);
+        var input = null;
+        input = $this.parents('li').children('textarea, input:not(.begin)');
+        input.each(function (i, e) {
+            $(e).toggle();
+        })
     },
     URLToArray: function (url) {
         var request = {};
@@ -154,13 +172,13 @@ App = {
         if ($('#recaptcha_reload').length > 0) {
             Recaptcha.reload();
         }
-        $("body").append("<div class=\"alert box-message\"><div class=\"pop-up alert-"+status+"\">"+text+"</div></div>");
+        $("body").append("<div class=\"alert box-message\"><div class=\"pop-up alert-" + status + "\">" + text + "</div></div>");
         var refreshIntervalId = setInterval(function () {
             $('.alert').remove();
             clearInterval(refreshIntervalId);
         }, 5000);
     },
-    clearForm : function () {
+    clearForm: function () {
         $('div[class="can-toggle__switch"]').each(function () {
             var $this = $($(this).parent('label').parent('div.can-toggle').child('input[type="checkbox"]'));
             $this = $($this);
