@@ -70,7 +70,7 @@ $lang = array (
     "question" => "Zadaj nam pytanie",
     "problems" => "Ewentualne problemy",
 
-    "reCaptcha" => "Captcha jest pusty, bądź został niepoprawnie wprowadzony",
+    "reCaptcha" => "Kod weryfikacyjny jest pusty bądź został niepoprawnie wprowadzony.",
     "not_send_mail" => "Wysyłanie wiadomości zakończyło się niepowodzeniem",
     "send_mail" => "Wiadomość została wysłana poprawnie",
 
@@ -80,7 +80,7 @@ $lang = array (
     "questionnaire" => "Ankieta wyposażenia przedsiębiorstwa w sprzęt elektroenergetyczny",
     "client" => "Dane klienta :",
     "parameters_not_set" => "W ankiecie nie zostały wybrane żadne pola",
-    "selected_input_empty" => "Zaznaczono na 'Tak', lecz żadne pole nie zostało wypełnione.",
+    "selected_input_empty" => "Zaznaczone zostały pola, dla których nie podano wartości.",
 
     //PLACEHOLDER
     "company_name" => "Nazwa firmy",
