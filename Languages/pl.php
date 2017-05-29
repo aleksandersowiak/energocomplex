@@ -79,7 +79,7 @@ $lang = array (
     "devices" => "Urządzenia elektroenergetyczne w eksploatacji: ",
     "questionnaire" => "Ankieta wyposażenia przedsiębiorstwa w sprzęt elektroenergetyczny",
     "client" => "Dane klienta :",
-    "parameters_not_set" => "W ankiecie nie zostały wybrane żadne pola",
+    "parameters_not_set" => "W ankiecie nie zostały wypełnione żadne pola",
     "selected_input_empty" => "Zaznaczono na 'Tak', lecz żadne pole nie zostało wypełnione.",
 
     //PLACEHOLDER
