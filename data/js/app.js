@@ -5,6 +5,7 @@ App = {
             //OTHER IN ACTIVITY
             $("input").on('keydown', function (event) {
                 $(this).removeClass('error-input');
+                $(this).parent('td').removeAttr('data-tip');
             });
 
             var other_activity = $('#other_activity');
@@ -37,30 +38,31 @@ App = {
             });
 
             $('input[type="submit"]').click(function (event) {
-                $('form').find("input.required").each(function () {
-                    if ($(this).val() == '') {
+                $('form').find("input").each(function () {
+                    if (($(this).val() == '') && $(this).hasClass('required')) {
                         $(this).addClass('error-input');
-
+                        $(this).parent('td').attr('data-tip', required_message);
                         event.preventDefault();
                         return;
                     }
                 });
                 if ($('form').find("input.required").first().hasClass('error-input')) {
-                    console.log($('form').find('input.required').first());
                     $('html, body').animate({
-
                         scrollTop: $('form').find('input.required').first().offset().top
                     }, 1000);
                 }
                 var booking_email = $('input[name="email"]').val();
-                if (!/(.+)@(.+){2,}\.(.+){2,}/.test(booking_email)) {
-                    if (!$('input[name="email"]').hasClass('error-input')) {
+                if (booking_email != '') {
+                    if (!/(.+)@(.+){2,}\.(.+){2,}/.test(booking_email)) {
+
                         $('input[name="email"]').addClass('error-input');
+                        $('input[name="email"]').parent('td').attr('data-tip', email_invalid);
                         $('html, body').animate({
                             scrollTop: $('input[name="email"]').offset().top
                         }, 1000);
                         event.preventDefault();
                         return;
+
                     }
                 }
 

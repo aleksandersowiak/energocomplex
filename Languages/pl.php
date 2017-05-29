@@ -92,5 +92,8 @@ $lang = array (
     "yes" => "Tak",
     "no" => "Nie",
 
+    "required_message" => "To pole jest wymagane",
+    "email_invalid" => 'Wprowadzony email jest nieprawidłowy.'
+
 
 );
