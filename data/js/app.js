@@ -101,7 +101,6 @@ App = {
 
     showHide: function ($thisEl) {
         var $this = $($thisEl.parent('label').parent('div.can-toggle').child('input[type="checkbox"]'));
-        console.log($this)
         $this = $($this);
         var input = null;
         input = $this.parents('li').children('textarea, input:not(.begin)');
