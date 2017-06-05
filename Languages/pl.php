@@ -1,6 +1,7 @@
 <?php
 $lang = array (
     //"String" => "Translated String",
+"page_title" => "Ankieta EnergoComplex",
     "pl" => "Polski",
     "en" => 'English',
     "global_header_language" => "Język",
@@ -93,7 +94,8 @@ $lang = array (
     "no" => "Nie",
 
     "required_message" => "To pole jest wymagane",
-    "email_invalid" => 'Wprowadzony email jest nieprawidłowy.'
+    "email_invalid" => 'Wprowadzony email jest nieprawidłowy.',
+    "device" => "Urządzenie",
 
 
 );

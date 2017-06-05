@@ -13,7 +13,7 @@
     <div id="app-lang" class="f16" style="display: inline-block; position:relative">
         <span style="float:left;" class="flag <?= $base_lang ?>"><?= $languages[$base_lang] ?></span>
         <span
-            style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeklEQVQ4T+WSsQmAMBAAL42VC1laiQvokC6ghVi6kAhiIy8fSPExSMoEQprcES7vyFwuk6cAQaON9lirrwYCLwp2gCmJCTy8qaAFTIkl8PAKDPD+1ASYEkswAycwAre+oFKJnH3YwxLUwBXA/r7Aso+U4NdwFjCJyR4PXWwREVlwoykAAAAASUVORK5CYII=); width: 16px; height: 16px; float:right"></span>
+            style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAGdJREFUOI3tzjsOwjAURNGDUqSgTxU5K2AVrJtswjUsgHSR0qdxAZZFPrS+3ZvRzBsqf9MUtBtazJk+oMe0VTriiZCFX8nbpENMgfARjsn74vKj5IFruhfc8d6zIF9S/Hyk5HS4spMVeFcOjszaOwMAAAAASUVORK5CYII=); width: 16px; height: 16px; float:right"></span>
 
         <div class="langs" style="padding: 7px; margin-left: -1px; display: none">
             <ul>
@@ -45,7 +45,7 @@
                 $('#app-lang').css('border', '1px solid #ccc');
                 $('#app-lang').css('padding', '0');
                 $('.langs').css('display', 'block');
-                $('.langs').css('margin-top',-($('.langs').outerHeight()+1))
+                $('.langs').css('margin-top',($('#app-lang').outerHeight())-1)
             }
         });
         $('.langs span').click(function () {

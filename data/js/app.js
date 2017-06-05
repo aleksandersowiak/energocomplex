@@ -1,8 +1,11 @@
 App = {
     init: function () {
-
+//$(document).on('click', function(event) {
+//  console.log(event);
+//})
         $(document).ready(function () {
             //OTHER IN ACTIVITY
+
             $("input").on('keydown', function (event) {
                 $(this).removeClass('error-input');
                 $(this).parent('td').removeAttr('data-tip');
@@ -15,7 +18,9 @@ App = {
             $.fn.child = function (s) {
                 return $(this).children(s)[0];
             };
-
+            $($('span[class*="visibleSub"]').parent('li').children('.box')).each(function () {
+                $(this).toggle();
+            });
             $('#viewTree div[class="can-toggle__switch"]').on('click', function () {
                 $($(this).parents('li').child('div[class="box"]')).slideToggle();
                 $($($(this)).parent('li').child('div[class="can-toggle__switch"]')).trigger('click');
@@ -70,8 +75,9 @@ App = {
 
                 $($this.parents('form')).unbind('submit').submit(function () {
                     var serializeForm = $('table :input:visible').serialize();
-                    var serializeObject = $('div#viewTree').find('input[type="text"], input[type="hidden"], textarea').serialize();
-
+                    var serializeObject = $('div#viewTree').find('input[type="text"], input[type="hidden"], textarea').filter(function () {
+                        return $(this).is(':visible');
+                    }).serialize();
                     var serializeCheckbox = $('div#viewTree').find('input[type="text"], textarea').filter(function () {
                         return $(this).is(':visible');
                     }).parent("li").find('input[type="checkbox"]').serialize();
@@ -106,6 +112,7 @@ App = {
         input = $this.parents('li').children('textarea, input:not(.begin)');
         input.each(function (i, e) {
             $(e).toggle();
+
         })
     },
     URLToArray: function (url) {
@@ -126,8 +133,13 @@ App = {
         html += '<ul>';
         for (var item in data) {
             var dataName = '';
+
             if (data[item].name != undefined) {
-                dataName = '<span class="label label-default control control--checkbox ">' + data[item].name + '</span>';
+                var sclass = '';
+                if (data[item].class != undefined) {
+                    sclass = data[item].class;
+                }
+                dataName = '<span class="label label-default control control--checkbox '+sclass+'">' + data[item].name + '</span>';
             }
             html += '<li>';
             if (typeof(data[item].sub) === 'object') { // An array will return 'object'
@@ -135,7 +147,6 @@ App = {
                 if (data[item].input != undefined) {
                     var input = data[item].input;
                     for (inp in input) {
-
                         if (input[inp].class == 'begin') {
                             html +=
                                 '<div class="can-toggle can-toggle--size-small" style="display: inline-block"> ' +
@@ -167,6 +178,7 @@ App = {
         }
         html += '</ul>';
         html += (isSub) ? '</div>' : '';
+
         return html;
     },
     feedBack: function (status, text) {

@@ -29,6 +29,15 @@ public $_publicKey;
         $this->_privateKey = $conf['recaptcha.private'];
 	}
 	public function __init() {
+        if ($this->getParam('controller') == '' || $this->getParam('controller') == NULL || $this->getParam('controller') == false) {
+            $this->setParam('controller','home');
+        }
+        if ($this->getParam('action') == '' || $this->getParam('action') == NULL || $this->getParam('action') == false) {
+            $this->setParam('action','index');
+        }
+        if ($this->getParam('language') == "") {
+            $this->setParam('language',DEFAULT_LANG);
+        }
 
     }
 

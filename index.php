@@ -4,6 +4,7 @@ defined('APPLICATION_PATH')
 defined('APPLICATION_ENV')
 || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
 define('DEFAULT_LANG', 'pl');
+define('APP_VER', '1.02');
 spl_autoload_register(function ($class_name) {
     if(file_exists(APPLICATION_PATH.'/Classes/' . $class_name . '.php')) {
         include_once APPLICATION_PATH.'/Classes/' . $class_name . '.php';

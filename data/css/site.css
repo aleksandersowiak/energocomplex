@@ -44,7 +44,7 @@ select {
     border-radius: 0px;
 }
 
-table select {
+table select, table input{
     width: 100%;
 }
 input[type=textarea]{
@@ -54,7 +54,10 @@ input[type=textarea]{
     box-sizing: border-box;
     border-radius: 0px;
 }
-
+input.begin {
+    margin-top: 5px;
+    margin-left: 10px;
+}
 a { text-decoration: none; }
 #footer.footer {
     background-color: #fff;
@@ -64,7 +67,7 @@ a { text-decoration: none; }
     margin-top: 5px;
     padding: 4px;
     position: fixed;
-    bottom: 0;
+    top: 0;
     right:0;
     height: 25px;
 }
@@ -442,6 +445,7 @@ hr {
     -ms-flex: 0 0 70px;
     flex: 0 0 70px;
     border-radius: 2px;
+    margin-top: -5px !important;
 }
 .can-toggle.can-toggle--size-small label .can-toggle__switch:before {
     left: 35px;
@@ -469,8 +473,8 @@ textarea {
 .error-input {
     background: #ffecec;
     border: 1px solid #f5aca6;
-    padding: 8px 9px 8px 9px;
-    margin: 1px 0 1px 0;
+    padding: 9px 9px 9px 9px;
+    margin: 0;
 }
 
 [data-tip] {

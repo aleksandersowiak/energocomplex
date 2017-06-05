@@ -70,18 +70,18 @@ class Home extends BaseController {
     $json = '[
 	{"name": "'.__('rotating_machines').'","input": [{"type": "checkbox","id": "_rotating_machines","name": "rotating_machines","class": "begin"}],"sub": [
 		{"name": "'.__('engine').'",	"input": [{	"type": "checkbox",	"id": "_engine","name": "engine",	"class": "begin"}],	"sub": [
-			{"name": "'.__('voltage').'","input": [{	"type": "checkbox",	"id": "_engine_voltage","name": "engine_voltage","class": "begin"}],"sub": [
-				{"name": "'.__('v_to_6').'","input": [{"type": "checkbox","id": "_engine_voltage_to_6",	"name": "engine_voltage_to_6",	"class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible","id": "quantity_engine_voltage_to_6","name": "quantity_engine_voltage_to_6"}],	"sub": null},	
+			{"name": "'.__('voltage').'", "class":"visibleSub", "sub": [
+				{"name": "'.__('v_to_6').'","input": [{"type": "checkbox","id": "_engine_voltage_to_6",	"name": "engine_voltage_to_6",	"class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible","id": "quantity_engine_voltage_to_6","name": "quantity_engine_voltage_to_6"}],	"sub": null},
 				{"name": "'.__('v_up_6').'","input": [{"type": "checkbox","id": "_engine_voltage_up_6","name": "engine_voltage_up_6","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'","class": "invisible","id": "quantity_engine_voltage_up_6",	"name": "quantity_engine_voltage_up_6"}],"sub": null}
 			]},
-			{"name": "'.__('power').'",	"input": [{"type": "checkbox","id": "_engine_power","name": "engine_power","class": "begin"}],"sub": [
+			{"name": "'.__('power').'", "class":"visibleSub", "sub": [
 				{"name": "'.__('p_to_1').'","input": [{"type": "checkbox","id": "_engine_power_to_1","name": "engine_power_to_1","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'","class": "invisible","id": "quantity_engine_power_to_1","name": "quantity_engine_power_to_1"}],"sub": null},
-				{"name": "'.__('p_to_10').'","input": [{"type": "checkbox","id": "_engine_power_to_10",	"name": "engine_power_to_10","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'","class": "invisible","id": "quantity_engine_power_to_10","name": "quantity_engine_power_to_10"}],"sub": null},
-				{"name": "'.__('p_up_10').'","input": [{"type": "checkbox","id": "_engine_power_up_10",	"name": "engine_power_up_10","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'","class": "invisible","id": "quantity_engine_power_up_10","name": "quantity_engine_power_up_10"}],"sub": null}
+				{"name": "'.__('p_to_10').'","input": [{"type": "checkbox","id": "_engine_power_to_ten",	"name": "engine_power_to_ten","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'","class": "invisible","id": "quantity_engine_power_to_ten","name": "quantity_engine_power_to_ten"}],"sub": null},
+				{"name": "'.__('p_up_10').'","input": [{"type": "checkbox","id": "_engine_power_up_ten",	"name": "engine_power_up_ten","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'","class": "invisible","id": "quantity_engine_power_up_ten","name": "quantity_engine_power_up_ten"}],"sub": null}
 			]}
 		]},
 		{"name": "'.__('generator').'",	"input": [{"type": "checkbox","id": "_generator","name": "generator","class": "begin"}],"sub": [
-			{"name": "'.__('power').'","input": [{	"type": "checkbox",	"id": "_generator_power",	"name": "generator_power",	"class": "begin"}],"sub": [
+			{"name": "'.__('power').'", "class":"visibleSub", "sub": [
 			    {"name": "'.__('p_to_100').'","input": [{"type": "checkbox","id": "_generator_power_to_100","name": "generator_power_to_100","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'","class": "invisible","id": "quantity_generator_power_to_100","name": "quantity_generator_power_to_100"}],"sub": null},
 				{"name": "'.__('p_up_100').'","input": [{"type": "checkbox","id": "_generator_power_up_100","name": "generator_power_up_100","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'","class": "invisible","id": "quantity_generator_power_up_100","name": "quantity_generator_power_up_100"}],"sub": null}
 			]}
@@ -90,18 +90,16 @@ class Home extends BaseController {
 		{"name": "'.__('question').'","input": [{"type": "checkbox","id": "_rotating_machines_question", "name": "rotating_machines_question","class": "begin"}, {"type": "textarea", "placeholder":"'.__('questions').'","class": "invisible","id": "rotating_machines_question","name": "rotating_machines_question"}],"sub": null}
 	]},
 	{"name": "'.__('transformers').'","input": [{"type": "checkbox","id": "_transformers","name": "transformers","class": "begin"}],"sub": [
-		{"name": "'.__('power').'","input": [{	"type": "checkbox",	"id": "_transformers_power","name": "transformers_power","class": "begin"}],"sub": [
+		{"name": "'.__('power').'", "class":"visibleSub", "sub": [
 			{"name": "'.__('p_to_2').'","input": [{"type": "checkbox",	"id": "_transformers_power_to_2","name": "transformers_power_to_2","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'","class": "invisible","id": "quantit__transformers_power_to_2","name": "quantity_transformers_power_to_2"}],"sub": null},
 			{"name": "'.__('p_up_2').'","input": [{"type": "checkbox",	"id": "_transformers_power_up_2",	"name": "transformers_power_up_2",	"class": "begin"}, {	"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible",	"id": "quantity_transformers_power_up_2",	"name": "quantity_transformers_power_up_2"}],"sub": null}
 		]},
-		{"name": "'.__('voltageGN').'",	"input": [{"type": "checkbox","id": "_transformers_voltage","name": "transformers_voltage","class": "begin"}],	"sub": [
+		{"name": "'.__('voltageGN').'",	"class":"visibleSub",	"sub": [
 			{"name": "'.__('v_to_72').'","input": [{"type": "checkbox",	"id": "_transformers_voltage_to_72","name": "transformers_voltage_to_72",	"class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible",	"id": "quantity_transformers_voltage_to_72",	"name": "quantity_transformers_voltage_to_72"}],"sub": null	},
 			{"name": "'.__('v_to_200').'","input": [{	"type": "checkbox",	"id": "_transformers_voltage_to_200",	"name": "transformers_voltage_to_200",	"class": "begin"}, {	"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible",	"id": "quantity_transformers_voltage_to_200",	"name": "quantity_transformers_voltage_to_200"}],"sub": null},
 			{"name": "'.__('v_up_200').'","input": [{	"type": "checkbox",	"id": "_transformers_voltage_up_200",	"name": "transformers_voltage_up_200",	"class": "begin"}, {	"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible",	"id": "quantity_transformers_voltage_up_200",	"name": "quantity_transformers_voltage_up_200"}],"sub": null}
 		]},
-		{"name": "'.__('ppz').'","input": [{"type": "checkbox",	"id": "_transformers_ppz","name": "transformers_ppz",	"class": "begin"}],"sub": [
-			{"name": "'.__('equipped').'","input": [{	"type": "checkbox",	"id": "_ppz_equipped",	"name": "ppz_equipped",	"class": "begin"}, {	"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible",	"id": "quantity_ppz_equipped",	"name": "quantity_ppz_equipped"}],"sub": null},
-			{"name": "'.__('not_equipped').'","input": [{	"type": "checkbox",	"id": "_not_ppz_equipped",	"name": "not_ppz_equipped",	"class": "begin"}, {	"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible",	"id": "quantity_not_ppz_equipped",	"name": "quantity_not_ppz_equipped"}],"sub": null},
+		{"name": "'.__('ppz').'", "class":"visibleSub", "sub": [
 			{"name": "'.__('producent').'","input": [{	"type": "checkbox",	"id": "_ppz_producent",	"name": "ppz_producent",	"class": "begin"}],"sub": [
 				{"name": "'.__('ABB').'","input": [{"type": "checkbox",	"id": "_ABB","name": "ABB","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible","id": "quantity_ABB",	"name": "quantity_ABB"}],"sub": null},
 				{"name": "'.__('MR').'","input": [{	"type": "checkbox",	"id": "_MR","name": "MR",	"class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible","id": "quantity_MR","name": "quantity_MR"}],"sub": null},
@@ -112,14 +110,14 @@ class Home extends BaseController {
 		{"name": "'.__('question').'","input": [{"type": "checkbox","id": "_transformers_question","name": "transformers_question","class": "begin"}, {"type": "textarea", "placeholder":"'.__('questions').'",	"class": "invisible","id": "transformers_question",	"name": "transformers_question"	}],	"sub": null}
 	]},
 	{"name": "'.__('switches').'","input": [{"type": "checkbox","id": "_switches","name": "switches","class": "begin"}],"sub": [
-		{"name": "'.__('voltage').'","input": [{"type": "checkbox",	"id": "_switches_voltage","name": "switches_voltage","class": "begin"}],"sub": [
+		{"name": "'.__('voltage').'", "class":"visibleSub", "sub": [
 			{"name": "'.__('v_to_72').'","input": [{"type": "checkbox",	"id": "_switches_voltage_to_72","name": "switches_voltage_to_72",	"class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible","id": "quantity_switches_voltage_to_72","name": "quantity_switches_voltage_to_72"}],"sub": null},
 			{"name": "'.__('v_up_72').'","input": [{	"type": "checkbox",	"id": "_switches_voltage_up_72",	"name": "switches_voltage_up_72",	"class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible",	"id": "quantity_switches_voltage_up_72",	"name": "quantity_switches_voltage_up_72"}],"sub": null}
 		]},
-		{"name": "'.__('Rodzaj').'","input": [{	"type": "checkbox",	"id": "_switches_typ","name": "switches_typ","class": "begin"}],"sub": [
+		{"name": "'.__('type').'",  "class":"visibleSub","sub": [
 			{"name": "'.__('vacuum').'","input": [{"type": "checkbox",	"id": "_switches_vacuum","name": "switches_vacuum","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible","id": "quantity_switches_vacuum","name": "quantity_switches_vacuum"}],"sub": null},
 			{"name": "'.__('SF6').'","input": [{"type": "checkbox","id": "_switches_SF6","name": "switches_SF6","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'","class": "invisible","id": "quantity_switches_SF6","name": "quantity_switches_SF6"}],"sub": null},
-			{"name": "'.__('other').'",	"input": [{"type": "checkbox","id": "_switches_other","name": "switches_other","class": "begin"}, {"type": "text", "placeholder":"'.__('company_name').'","class": "invisible","id": "name_switches_other","name": "name_switches_other"}, {"type": "text", "placeholder":"'.__('quantity_place').'","class": "invisible","id": "quantity_switches_other","name": "quantity_switches_other"}],"sub": null}
+			{"name": "'.__('other').'",	"input": [{"type": "checkbox","id": "_switches_other","name": "switches_other","class": "begin"}, {"type": "text", "placeholder":"'.__('producent').'","class": "invisible","id": "name_switches_other","name": "name_switches_other"}, {"type": "text", "placeholder":"'.__('quantity_place').'","class": "invisible","id": "quantity_switches_other","name": "quantity_switches_other"}],"sub": null}
 		]},
 		{"name": "'.__('problems').'","input": [{"type": "checkbox","id": "_switches_problem","name": "switches_problem","class": "begin"}, {"type": "textarea", "placeholder":"'.__('problem').'","class": "invisible","id": "switches_problem","name": "switches_problem"}],"sub": null},
 		{"name": "'.__('question').'","input": [{"type": "checkbox","id": "_switches_question","name": "switches_question","class": "begin"}, {"type": "textarea", "placeholder":"'.__('questions').'",	"class": "invisible","id": "switches_question",	"name": "switches_question"	}],	"sub": null}
@@ -127,7 +125,11 @@ class Home extends BaseController {
 	{"name": "'.__('apparatus').'","input": [{"type": "checkbox","id": "_apparatus","name": "apparatus","class": "begin"}],"sub": [
 		{"name": "'.__('transmitter').'","input": [{	"type": "checkbox",	"id": "_apparatus_transmitter",	"name": "apparatus_transmitter","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible",	"id": "apparatus_transmitter",	"name": "apparatus_transmitter"}],"sub": null},
 		{"name": "'.__('switchgear').'","input": [{	"type": "checkbox",	"id": "_apparatus_switchgear",	"name": "apparatus_switchgear","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible",	"id": "apparatus_switchgear",	"name": "apparatus_switchgear"}],"sub": null},
-		{"name": "'.__('other').'","input": [{"type": "checkbox","id": "_apparatus_other","name": "apparatus_other","class": "begin"},{"type": "text", "placeholder":"'.__('company_name').'","class": "invisible","id": "name_apparatus_other","name": "name_apparatus_other"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible","id": "quantity_apparatus_other","name": "quantity_apparatus_other"}],	"sub": null	},
+		{"name": "'.__('other').'",
+		"input": [{"type": "checkbox","id": "_apparatus_other","name": "apparatus_other","class": "begin"},
+		    {"type": "text", "placeholder":"'.__('device').'","class": "invisible","id": "device_apparatus_other","name": "device_apparatus_other"},
+		    {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible","id": "quantity_apparatus_other","name": "quantity_apparatus_other"},
+		    {"type": "text", "placeholder":"'.__('producent').'","class": "invisible","id": "producent_apparatus_other","name": "producent_apparatus_other"}],	"sub": null	},
 		{"name": "'.__('problems').'","input": [{"type": "checkbox","id": "_apparatus_problem",	"name": "apparatus_problem","class": "begin"}, {"type": "textarea", "placeholder":"'.__('problem').'","class": "invisible","id": "apparatus_problem","name": "apparatus_problem"}],"sub": null},
 		{"name": "'.__('question').'","input": [{"type": "checkbox","id": "_apparatus_question","name": "apparatus_question","class": "begin"}, {"type": "textarea", "placeholder":"'.__('questions').'","class": "invisible","id": "apparatus_question","name": "apparatus_question"}],"sub": null}
 	]}
@@ -159,15 +161,19 @@ class Home extends BaseController {
         $checkboxAll = $this->getParam('objectCheckAll');
         $inputs = $this->getParam('object');
         $w = array();
-
+        $j = 0;
         if($checkboxAll == '') {
             $this->feedback(__('parameters_not_set'),"danger");
         }
         if($checkbox == '') {
             $this->feedback(__('selected_input_empty'),"danger");
         }
-        $check = array_filter($checkbox , function($x) { return !empty($x); });
-
+        $check = array_filter($checkbox , function($x) {
+            return !empty($x);
+        });
+        foreach ($check as $key=> $val) {
+            $j = $j + count(preg_grep('/^.*' . $key . '.*/', array_keys($inputs)));
+        }
         foreach ($checkbox as $k => $v) {
             $rt = $this->selectPathArray($k,$checkboxAll);
             if($rt != false) {
@@ -187,15 +193,16 @@ class Home extends BaseController {
             foreach ($keyValue as $v) {
                 if($inputs[$v] != '') {
                     $save[$v] = $inputs[$v];
-                }
+
                 $dataVal .= '<span style="color: black; font-weight: bold">'.$inputs[$v].'<span>';
                 if ($v != end($keyValue)) $dataVal .= ' ';
+                }
             }
             $dataVal .= '</li>';
         }
         $dataVal .= '</ul>';
 
-        if(count($save) != count($check)) {
+        if(count($save) != $j) {
             $this->feedback(__('selected_input_empty'),"danger");
         }
 
@@ -207,7 +214,7 @@ class Home extends BaseController {
         $array = array_merge($form,$save);
         unset($array['recaptcha_response_field']);
 
-//        $this->_model->insert('ankieta',$array);
+        $this->_model->insert('ankieta',$array);
 
         $message = $this->message_head;
         $message .= sprintf($this->message_body, $form['company'], $form['first_name'], $form['last_name'], $form['email'], $form['activity'],$dataVal);
@@ -220,14 +227,13 @@ class Home extends BaseController {
         $mail->Subject  = 'Ankieta';
         $mail->Body     =  $message;
         $mail->IsHTML(true);
-        echo $message;
-        exit;
-//        if(!$mail->send()) {
-//            $this->feedback(__('not_send_mail'),"danger");
-//        } else {
-//            $extra = ' App.clearForm(); ';
-//            $this->feedback(__('send_mail'),"success", $extra);
-//        }
+
+        if(!$mail->send()) {
+            $this->feedback(__('not_send_mail'),"danger");
+        } else {
+            $extra = ' App.clearForm(); ';
+            $this->feedback(__('send_mail'),"success", $extra);
+        }
     }
 
     private function reCaptcha($response) {
@@ -295,10 +301,12 @@ class Home extends BaseController {
         $array = array_splice(json_decode($this->_json,true), $path[0]);
         $this->getPathFromArray($array, $string, $exactPath, $ca);
         $t = true;
+
         foreach ($ca as $c) {
             if(!array_key_exists($c,$checbox)) $t = false;
         }
         if($t == false) return false;
+
         return $exactPath;
     }
 }
