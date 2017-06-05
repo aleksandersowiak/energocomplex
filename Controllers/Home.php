@@ -101,8 +101,8 @@ class Home extends BaseController {
 		]},
 		{"name": "'.__('ppz').'", "class":"visibleSub", "sub": [
 			{"name": "'.__('producent').'","input": [{	"type": "checkbox",	"id": "_ppz_producent",	"name": "ppz_producent",	"class": "begin"}],"sub": [
-				{"name": "'.__('ABB').'","input": [{"type": "checkbox",	"id": "_ABB","name": "ABB","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible","id": "quantity_ABB",	"name": "quantity_ABB"}],"sub": null},
-				{"name": "'.__('MR').'","input": [{	"type": "checkbox",	"id": "_MR","name": "MR",	"class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible","id": "quantity_MR","name": "quantity_MR"}],"sub": null},
+				{"name": "'.__('ABB').'","input": [{"type": "checkbox",	"id": "_ABB","name": "_ABB","class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible","id": "quantity_ABB",	"name": "quantity_ABB"}],"sub": null},
+				{"name": "'.__('MR').'","input": [{	"type": "checkbox",	"id": "_MR","name": "_MR",	"class": "begin"}, {"type": "text", "placeholder":"'.__('quantity_place').'",	"class": "invisible","id": "quantity_MR","name": "quantity_MR"}],"sub": null},
 				{"name": "'.__('other').'",	"input": [{	"type": "checkbox",	"id": "_ppz_other",	"name": "ppz_other","class": "begin"}, {"type": "text","placeholder":"'.__('company_name').'","class": "invisible","id": "name_ppz_other","name": "name__ppz_other"}, {"type": "text", "placeholder":"'.__('quantity_place').'","class": "invisible","id": "quantity_ppz_other","name": "quantity_ppz_other"}],	"sub": null}
 			]}
 		]},
@@ -165,6 +165,7 @@ class Home extends BaseController {
         if($checkboxAll == '') {
             $this->feedback(__('parameters_not_set'),"danger");
         }
+
         if($checkbox == '') {
             $this->feedback(__('selected_input_empty'),"danger");
         }
@@ -173,6 +174,7 @@ class Home extends BaseController {
         });
         foreach ($check as $key=> $val) {
             $j = $j + count(preg_grep('/^.*' . $key . '.*/', array_keys($inputs)));
+
         }
         foreach ($checkbox as $k => $v) {
             $rt = $this->selectPathArray($k,$checkboxAll);
@@ -298,7 +300,8 @@ class Home extends BaseController {
             }
             break;
         }
-        $array = array_splice(json_decode($this->_json,true), $path[0]);
+        $arrays = json_decode($this->_json,true);
+        $array = array_splice($arrays, $path[0]);
         $this->getPathFromArray($array, $string, $exactPath, $ca);
         $t = true;
 
