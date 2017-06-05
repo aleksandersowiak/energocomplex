@@ -52,19 +52,18 @@ $lang = array (
     "v_to_200" => "From 72kV to 200kV",
     "v_up_200" => "Over 200 kV",
 
-    "producent" => "OLTC producer",
+    "producent" => "Producer",
     "ABB" => "ABB",
     "MR" => "MR",
 
     "switches" => "Circuit Breakers",
     "switchesWN" => "WN Circuit Breakers",
-    "SF6_insulated_cameras" => "Cameras with SF6 insulation",
     "type" => "Type",
     "vacuum" => "Vacuum",
     "SF6" => "SF6",
 
-    "apparatus" => "Cameras with SF6 insulation",
-    "transmitter" => "Current and Voltage Transmitters",
+    "apparatus" => "Devices with SF6 insulation",
+    "transmitter" => "CT & VT",
     "switchgear" => "Switchgears",
 
     "question" => "Ask us a question",

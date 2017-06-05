@@ -59,13 +59,13 @@ $lang = array (
 
         "switches" => "Wyłączniki",
             "switchesWN" => "Wyłaczniki WN",
-    "SF6_insulated_cameras" => "Aparaty z izolacją SF6",
+
         "type" => "Rodzaj",
             "vacuum" => "Prózniowe",
             "SF6" => "SF6",
 
-    "apparatus" => "Aparaty z izolacją SF6",
-        "transmitter" => "Przekaźniki",
+    "apparatus" => "Urządzenia z izolacją SF6",
+        "transmitter" => "Przekładniki",
         "switchgear" => "Rozdzielnice",
 
     "question" => "Zadaj nam pytanie",
